@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Google 1998! - Keyword Frequency vs. PageRank</title>
+  <link rel="stylesheet" href="colour.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header with 1998 Google Style Logo -->
+    <header class="header">
+      <h1 class="logo">
+        <span class="logo-mini">Mini </span><span class="logo-g1">G</span><span class="logo-o1">o</span><span class="logo-o2">o</span><span class="logo-g2">g</span><span class="logo-l">l</span><span class="logo-e">e</span><span class="logo-ex"> 1998!</span>
+      </h1>
+      <p class="subtitle">AI Lab: Keyword Frequency vs. PageRank Algorithm</p>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-bar-wrapper">
+        <input type="text" id="searchInput" value="pizza" placeholder="Enter search keyword..." autofocus>
+        <button id="searchBtn" type="button">Search</button>
+      </div>
+      <div class="search-suggestions">
+        <span>Try searching:</span>
+        <button class="suggest-btn" data-query="pizza">pizza</button>
+        <span class="separator">|</span>
+        <button class="suggest-btn" data-query="pune">pune</button>
+        <span class="separator">|</span>
+        <button class="suggest-btn" data-query="food">food</button>
+        <span class="separator">|</span>
+        <button class="suggest-btn" data-query="canteen">canteen</button>
+      </div>
+    </div>
+
+    <!-- Comparative Results Grid -->
+    <main class="results-grid">
+      <!-- Left Column: Old Way (Keyword Frequency) -->
+      <section class="column" id="leftColumn">
+        <div class="column-header">
+          <h2 class="column-title">Left: Old way</h2>
+          <p class="column-desc">Sorted by how many times the word appears in the page text</p>
+        </div>
+        <div class="cards-list" id="leftResults">
+          <!-- Populated dynamically by script.js -->
+        </div>
+      </section>
+
+      <!-- Right Column: PageRank Way -->
+      <section class="column" id="rightColumn">
+        <div class="column-header">
+          <div class="title-with-action">
+            <h2 class="column-title">Right: PageRank way</h2>
+            <button id="rerollBtn" title="Re-run 100,000 Random Surfer moves">🎲 Re-roll Surfer</button>
+          </div>
+          <p class="column-desc" id="pagerankDesc">Sorted by PageRank (from 100,000 random surfer moves)</p>
+        </div>
+        <div class="cards-list" id="rightResults">
+          <!-- Populated dynamically by script.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Educational Explanation -->
+    <footer class="footer-info">
+      <details>
+        <summary>ℹ️ How the 100,000 Random Surfer (Dice Throw) simulation works</summary>
+        <div class="explanation-content">
+          <p>
+            <strong>The Problem:</strong> Pre-1998 search engines counted word repetition. Spam sites like <code>pizza-pizza-pizza.com</code> easily manipulated search results by keyword stuffing (ranking #1).
+          </p>
+          <p>
+            <strong>Larry Page & Sergey Brin's Breakthrough (PageRank):</strong> A virtual web surfer starts on a random page. At each step, a random die is rolled:
+          </p>
+          <ul>
+            <li><strong>85% of the time (damping factor d = 0.85):</strong> The surfer randomly clicks one of the outbound links on the current page.</li>
+            <li><strong>15% of the time (teleportation):</strong> The surfer gets bored and jumps to any random webpage across the internet.</li>
+          </ul>
+          <p>
+            After <strong>100,000 dice throws</strong>, the fraction of visits each page receives represents its authority. Because Pune's food guides link to <code>best-pizza-pune.com</code>, it legitimately takes the #1 spot!
+          </p>
+        </div>
+      </details>
+    </footer>
+  </div>
+
+  <script src="my.js"></script>
+</body>
+</html>
